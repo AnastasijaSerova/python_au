@@ -3,12 +3,6 @@ from generate_md import LeetcodeSolution
 from generate_md import *
 
 class TestLeetcodeSolution(unittest.TestCase):
-import unittest
-from generate_md import LeetcodeSolution
-from generate_md import *
-
-
-class TestLeetcodeSolution(unittest.TestCase):
 
     def setUp(self):
         self.solution = LeetcodeSolution('Solution Name',
@@ -19,19 +13,19 @@ class TestLeetcodeSolution(unittest.TestCase):
 ''')
 
     def test_title(self):
-        self.assertEqual(self.solution.get_md_title(),
+        self.assertEqual(self.solution.Title(),
                          '## Solution Name\n')
 
     def test_menu_link(self):
-        self.assertEqual(self.solution.get_md_menu_link(),
+        self.assertEqual(self.solution.MenuLink(),
                          '+ [Solution Name](#solution-name)\n')
 
     def test_link(self):
-        self.assertEqual(self.solution.get_md_link(),
+        self.assertEqual(self.solution.Link(),
                          'https://leetcode.com/problems/solution-name/')
 
     def test_code(self):
-        self.assertEqual(self.solution.get_md_code(),
+        self.assertEqual(self.solution.Code(),
                          '''```python
 class Solution(object):
     def solutionName(self):

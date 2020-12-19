@@ -5,16 +5,16 @@ class LeetcodeSolution:
         self.link = link
         self.code = code
 
-    def get_md_title(self):
+    def Title(self):
         return '## {}\n'.format(self.title)
 
-    def get_md_menu_link(self):
+    def MenuLink(self):
         return '+ [{}](#{})\n'.format(self.title, self.link.split('/')[-2])
 
-    def get_md_link(self):
+    def Link(self):
         return self.link
 
-    def get_md_code(self):
+    def Code(self):
         return "```python\n{}```\n".format(self.code)
 
 
@@ -24,10 +24,10 @@ class MdFile:
         self.menu = menu
         self.solutions = solutions
 
-    def get_menu(self):
+    def Menu(self):
         return self.menu
 
-    def get_solutions(self):
+    def Solutions(self):
         return self.solutions
 
 
@@ -59,10 +59,10 @@ def read_md_file(filename):
 
 def generate_final_data(section, md_file, new_solution):
     res = "# {}\n\n".format(section)
-    res = '{}{}{}\n'.format(res, md_file.get_menu(),
-                            new_solution.get_md_menu_link())
-    res = res + md_file.get_solutions() + new_solution.get_md_title() \
-        + new_solution.get_md_link() + new_solution.get_md_code()
+    res = '{}{}{}\n'.format(res, md_file.Menu(),
+                            new_solution.MenuLink())
+    res = res + md_file.Solutions() + new_solution.Title() \
+        + new_solution.Link() + new_solution.Code()
     return res
 
 
