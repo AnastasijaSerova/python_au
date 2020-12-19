@@ -4,7 +4,7 @@ class New_part:
         title = title[:-1]
         self.title = "## " + title
         self.link = file.readline()
-        self.menulink = "+ ["+title+"]("+self.link.split('/')[-2]+")"
+        self.menulink = "+ ["+title+"](#"+self.link.split('/')[-2]+")"
         self.code = []
         self.code.append('```python\n')
         for i in file.readlines():
@@ -38,7 +38,7 @@ output_file = open(name+".md", 'w')
 output_file.write('# ' + name + '\n\n')
 for i in range(len(md_file.menu)):
     output_file.write(md_file.menu[i])
-output_file.write(part.menulink + '\n\n')
+output_file.write(part.menulink + '\n')
 for i in range(len(md_file.code)):
     output_file.write(md_file.code[i])
 output_file.write(part.title + '\n\n')

@@ -1,13 +1,11 @@
-Maximum Depth of Binary Tree
-https://leetcode.com/problems/maximum-depth-of-binary-tree/
+Invert Binary Tree
+https://leetcode.com/problems/invert-binary-tree/
 class Solution(object):
 
-    def maxDepth(self, root):
-        return self.children(root)
+    def invertTree(self, root):
+        if root:
+            (root.left, root.right) = (root.right, root.left)
+            self.invertTree(root.right)
+            self.invertTree(root.left)
 
-    def children(self, t):
-        if t is None:
-            return 0
-        if t.left is None and t.right is None:
-            return 1
-        return 1 + max(self.children(t.left), self.children(t.right))
+        return root
