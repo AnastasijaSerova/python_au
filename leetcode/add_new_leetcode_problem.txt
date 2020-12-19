@@ -1,11 +1,19 @@
-Invert Binary Tree
-https://leetcode.com/problems/invert-binary-tree/
+Symmetric Tree
+https://leetcode.com/problems/symmetric-tree/
 class Solution(object):
+    def isSymmetric(self, root):
+        def is_same_node(l, r):
+            if l is None and r is None:
+                return True
+            elif l is None or r is None:
+                return False
 
-    def invertTree(self, root):
-        if root:
-            (root.left, root.right) = (root.right, root.left)
-            self.invertTree(root.right)
-            self.invertTree(root.left)
+            if l.val != r.val:
+                return False
 
-        return root
+            return is_same_node(l.left, r.right) and is_same_node(l.right, r.left)
+        
+        if root is None:
+            return True
+        
+        return is_same_node(root.left, root.right)
