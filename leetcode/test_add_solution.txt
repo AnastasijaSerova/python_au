@@ -1,0 +1,5 @@
+Solution Name
+https://leetcode.com/problems/aolution-name/
+class Solution(object):
+    def mySolution(self):
+        return 1+1
